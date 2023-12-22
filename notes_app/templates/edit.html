@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block start %}
+
+<h3 style="margin-left: 37%;font-size: 3rem;margin-top: 2%; color: black;">Task Manager App</h3>
+<div class="card" style="width: 30rem;margin-left: 35%;margin-top: 4%;height: 20rem;">
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            <h3 style="font-size: x-large;">Edit Task</h3>
+            <div class="mb-3">
+                <label class="form-label">Task Name</label>
+                <input name="name" type="text" class="form-control" value="{{tasks.name}}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <textarea class="form-control" name="description" rows="3">{{tasks.description}}</textarea>
+            </div>
+            <div>
+                <button class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
